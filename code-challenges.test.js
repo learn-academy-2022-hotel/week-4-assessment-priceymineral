@@ -1,5 +1,7 @@
 // ASSESSMENT 4: JavaScript Coding Practical Questions with Jest
 
+const { array } = require("yargs")
+
 // Please read all questions thoroughly
 // Pseudo coding is REQUIRED
 // If you get stuck, please leave comments to help us understand your thought process
@@ -119,8 +121,59 @@ const voteTally = (object) => {
 
 // a) Create a test with an expect statement using the variables provided.
 
+// TEST PSEUDO
+// describe - name the function that will return an array with no duplicates
+// it - provide description of what the fxn does
+// expect - use the input arrays provided to compare the actual to the expected output
+// check for good error in terminal
+
+describe("noDups", () => {
+  const expected = ["array", "object", "number", "string", "Boolean", "null", "undefined"]
+  it("takes in two arrays and returns one array with no duplicates", () => {
+    expect(noDups(dataArray1, dataArray2)).toEqual(expected)
+  })
+})
+
 const dataArray1 = ["array", "object", "number", "string", "Boolean"]
 const dataArray2 = ["string", "null", "Boolean", "string", "undefined"]
 // Expected output: ["array", "object", "number", "string", "Boolean", "null", "undefined"]
 
 // b) Create the function that makes the test pass.
+
+// FXN PSEUDO
+// initialize noDups to take in two array arguments
+// initialize an object to keep track of the frequencies of the elements in the arrays
+// iterate over first array and create an object with the array element as key and the frequency as value
+// if the current element is in the object, increment the frequency
+// else, add it to the object with a frequency of 1
+// iterate over second array and create an object with the array element as key and the frequency as value
+// if the current element is in the object, increment the frequency
+// else, add it to the object with a frequency of 1
+// return the object keys
+
+const noDups = (array1, array2) => {
+  let frequencies = {}
+
+  for (let i = 0; i < array1.length; i++) {
+  //   if (frequencies[array1[i]]) {
+  //     ++frequencies[array1[i]]
+  //   } else {
+  //     frequencies[array1[i]] = 1
+  //   }
+  // Substituted if-else statement with ternary
+  frequencies[array1[i]] ? ++frequencies[array1[i]] : frequencies[array1[i]] = 1
+}
+
+for (let i = 0; i < array2.length; i++) {
+  // if (frequencies[array2[i]]) {
+    //   ++frequencies[array2[i]]
+    // } else {
+      //   frequencies[array2[i]] = 1
+      // }
+      // Substituted if-else statement with ternary
+    frequencies[array2[i]] ? ++frequencies[array2[i]] : frequencies[array2[i]] = 1
+
+  }
+
+  return Object.keys(frequencies)
+}
