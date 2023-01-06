@@ -49,6 +49,7 @@ const colors2 = [
 // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
 // b) Create the function that makes the test pass.
+
 // FXN PSEUDO
 // initialize removeFirstAndShuffle fxn which takes one (array) argument
   // remove the first element of the input array (shift?)
@@ -57,7 +58,7 @@ const colors2 = [
 const removeFirstAndShuffle = (array) => {
   array.shift()
   let shuffledArray = shuffle(array)
-  console.log(shuffledArray)
+
   return shuffledArray
 }
 
@@ -69,6 +70,7 @@ const shuffle = (array) => {
     array[j] = temp;
     // [array[i], array[j]] = [array[j], array[i]] // ReferenceError: Cannot access 'j' before initialization
   }
+
   return array
 }
 
@@ -77,12 +79,41 @@ const shuffle = (array) => {
 
 // a) Create a test with expect statements for each of the variables provided.
 
+// TEST PSEUDO
+// describe - name the function that performs the requirements
+// it - describe the functionality
+// expect - call the function and compare actual output to expected
+// check for "good" error
+
+describe("voteTally", () => {
+  it("counts votes and returns the current tally", () => {
+    expect(voteTally(votes1)).toEqual(11)
+    expect(voteTally(votes2)).toEqual(-31)
+  })
+})
+
 const votes1 = { upVotes: 13, downVotes: 2 }
 // Expected output: 11
 const votes2 = { upVotes: 2, downVotes: 33 }
 // Expected output: -31
 
 // b) Create the function that makes the test pass.
+
+// FXN PSEUDO
+// initialize fxn voteTally which takes one (object) argument
+// access the upVotes and assign to a variable
+// access the downVotes and assign to a variable
+// subtract downVotes from upVotes and assign to a variable
+// return the result variable
+
+const voteTally = (object) => {
+  let dVotes = object.downVotes
+  let uVotes = object.upVotes
+  let tally = uVotes-dVotes
+
+  return tally
+}
+
 
 // --------------------3) Create a function that takes in two arrays as arguments and returns one array with no duplicate values. STRETCH: Use the spread operator to pass in a dynamic number of arguments.
 
