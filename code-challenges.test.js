@@ -15,6 +15,27 @@
 // a) Create a test with an expect statement using the variable provided.
 // HINT: Check out this resource: https://jestjs.io/docs/expect#expectarraycontainingarray
 
+// TEST PSEUDO
+// describe - name function that will perform the requirements
+// it - provide a description of the functionality
+// expect - perform the evaluation 
+// check for the "good error" in terminal
+
+describe("removeFirstAndShuffle", () => {
+  const expected1 = ["blue", "green", "yellow", "pink"]
+  const expected2 = [
+    "indigo",
+    "periwinkle",
+    "ochre",
+    "aquamarine",
+    "saffron"
+  ]
+  it("removes the first item in the array and shuffles the rest", () => {
+    expect(removeFirstAndShuffle(colors1)).toEqual(expect.arrayContaining(expected1))
+    expect(removeFirstAndShuffle(colors2)).toEqual(expect.arrayContaining(expected2))
+  })
+})
+
 const colors1 = ["purple", "blue", "green", "yellow", "pink"]
 // Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
 const colors2 = [
@@ -28,6 +49,29 @@ const colors2 = [
 // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
 // b) Create the function that makes the test pass.
+// FXN PSEUDO
+// initialize removeFirstAndShuffle fxn which takes one (array) argument
+  // remove the first element of the input array (shift?)
+  // shuffle the new (modified) array
+  // return the array
+const removeFirstAndShuffle = (array) => {
+  array.shift()
+  let shuffledArray = shuffle(array)
+  console.log(shuffledArray)
+  return shuffledArray
+}
+
+const shuffle = (array) => {
+  for (let i = array.length - 1; i> 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    const temp = array[i]
+    array[i] = array[j];
+    array[j] = temp;
+    // [array[i], array[j]] = [array[j], array[i]] // ReferenceError: Cannot access 'j' before initialization
+  }
+  return array
+}
+
 
 // --------------------2) Create a function that takes in an object that contains up votes and down votes and returns the end tally.
 
