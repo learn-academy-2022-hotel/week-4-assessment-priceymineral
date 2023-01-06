@@ -10,6 +10,28 @@ num2 = 42
 num3 = 221
 # Expected output: '221 is odd'
 
+# PSEUDO
+# initialize method to take one argument (integer)
+# use modulo to determine if input is even or odd
+# returnd a string stating the input number and whether it is even or odd
+
+def evenOrOdd(num) 
+    whatIsIt = ''
+    # if num % 2 == 0
+    #     whatIsIt = 'even'
+    # else 
+    #     whatIsIt = 'odd'
+    # end
+
+    # Replaced if-else with ternary operator
+    num % 2 == 0 ? whatIsIt = 'even' : whatIsIt = 'odd'
+
+    "#{num} is #{whatIsIt}"
+end
+
+p evenOrOdd(num1)
+p evenOrOdd(num2)
+p evenOrOdd(num3)
 
 
 # -------------------2) Create a method that takes in a string and removes all the vowels from the string. Use the test variables provided. 
