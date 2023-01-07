@@ -61,7 +61,7 @@ def disemvowel(str)
             str.delete! c
         end
     end
-    
+
     p str
 end
 
@@ -77,3 +77,23 @@ palindrome_tester2 = 'LEARN'
 # Expected output: 'LEARN is not a palindrome'
 palindrome_tester3 = 'Rotator'
 # Expected output: 'Rotator is a palindrome'
+
+# PSEUDO
+# initialize a function that takes a string as an argument
+# reverse the input string and save to a variable
+# if the reversed string is equal to the original string return the appropriate string
+# else return the appropriate string
+
+def isPalindrome(str)
+    strReversedLowered = str.reverse.downcase
+
+    if str.downcase == strReversedLowered
+        p "#{str} is a palindrome"
+    else 
+        p "#{str} is not a palindrome"
+    end
+end
+
+isPalindrome(palindrome_tester1)
+isPalindrome(palindrome_tester2)
+isPalindrome(palindrome_tester3)
